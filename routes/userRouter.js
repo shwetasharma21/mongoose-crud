@@ -55,4 +55,28 @@ router.put("/updateOne/:id", async (req, res) => {
     res.status(404).json({ msg: err.message });
   }
 });
+
+router.post("/addAccount/:userId", async (req, res) => {
+  const userId = req.params.userId;
+  const { accNo, bankName, accType, balance } = req.body;
+  try {
+    const result = await User.findOneAndUpdate(
+      { _id: userId },
+      {
+        $push: {
+          accounts: {
+            accNo,
+            bankName,
+            accType,
+            balance,
+          },
+        },
+      }
+    );
+    res.send(result);
+  } catch (err) {
+    res.status(400).json({ msg: "Account not added", err: err.message });
+  }
+});
+
 module.exports = router;
