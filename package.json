@@ -1,0 +1,19 @@
+{
+  "name": "mongoose-crud",
+  "version": "1.0.0",
+  "description": "CRUD operation with mongoose local database",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js --inspect"
+  },
+  "author": "Shweta Sharma",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.13.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
